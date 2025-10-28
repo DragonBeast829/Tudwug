@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="hljs.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/highlightjs-luau/dist/luau.min.js"></script>
+</head>
+<body>
+    <div id="parchment-wrapper">
+        <div id="parchment-bg"></div>
+        <div id="sidebar"><a href="\#" onclick="navigateTo('readme');">Readme</a><div class="category">Modules<ul><li><a href="\#" onclick="navigateTo('modules/gacha');">Gacha</a></li></ul></div><div class="category">CLI<ul><li><a href="\#" onclick="navigateTo('cli/ssg');">SSG</a></li></ul></div><a href="\#" onclick="navigateTo('todo');">Todo</a></div>
+        <div id="parchment-content"><div class="section" id="readme"><h1>Tudwug</h1>
+<p>todo: write a readme</p></div><div class="section" id="modules/gacha"><h1>Gacha</h1>
+<p>An overengineered weighted RNG library for <a href="https://luau.org/">Luau</a>. Let's go gambling!</p>
+<p>The module can be found <a href="https://github.com/DragonBeast829/Tudwug/tree/main/modules/Gacha.luau">here</a>.</p>
+<h2>Gacha module</h2>
+<p>The Gacha module contains a constructor for Banners. Very feature packed module, I know.</p>
+<pre><code class="language-luau">function Gacha.banner(
+    pools: {Pool}
+): Banner
+</code></pre>
+<h2>Types</h2>
+<h3>Banner</h3>
+<p>Banners are returned by <code>Gacha.banner</code> and store methods to perform pulls.</p>
+<h4>Banner.pull</h4>
+<p>Returns a single item from the banner.</p>
+<pre><code class="language-luau">function Banner.pull(): unknown
+</code></pre>
+<h4>Banner.pullMany</h4>
+<p>Returns <code>n</code> items pulled from the banner. If <code>n &lt;= 0</code>, returns an empty table.</p>
+<pre><code class="language-luau">function Banner.pullMany(n: number): {unknown}
+</code></pre>
+<h3>Pool</h3>
+<p>A Pool contains items that can be pulled and a weight to determine its likelihood. Banners can have multiple pools to organize different types of items.</p>
+<pre><code class="language-luau">type Pool = {
+    weight: number, -- Must be &gt;= 0. Otherwise, it will error.
+    items:  {PoolItem}
+}
+</code></pre>
+<h3>PoolItem</h3>
+<p>Represents a single item in a pool, with a weight determining its probability and the value returned when pulled.</p>
+<pre><code class="language-luau">type PoolItem = {
+    weight: number, -- Must be &gt;= 0. Otherwise, it will error.
+    item:   unknown -- Items can be of any type; a string, number, table, etc.
+}
+</code></pre></div><div class="section" id="cli/ssg"><h1>SSG</h1>
+<p>The SSG used to generate this documentation.</p>
+<h2>CLI Command</h2>
+<p>It takes in a source directory and an output directory. The source directory contains markdown files, which are compiled to HTML.</p>
+<p>For example,</p>
+<pre><code class="language-bash">tudwug --src ./src --out ./out
+</code></pre>
+<h2>Pages &amp; Categories</h2>
+<p>Pages are represented by individual markdown files, and categories can be created using directories in the source directory. For instance,</p>
+<pre><code class="language-text">src
+├─ dir
+│  └─ foo.md
+└─ bar.md
+</code></pre>
+<h2>Naming</h2>
+<p>While pages and categories can be named whatever, starting a name with a digit and then a hyphen can order the files in numerical order as opposed to alphabetical order. For example,</p>
+<pre><code class="language-text">src
+├─ apple.md
+└─ banana.md
+
+src
+├─ 1-apple.md
+└─ 2-banana.md
+</code></pre>
+<p>With the structure, apple will appear first in the sidebar as it comes first alphabetically. In the second, apple will appear after banana.</p></div><div class="section" id="todo"><h1>Todo</h1>
+<ol>
+<li>Create the GitHub repository</li>
+<li>Upload these docs to my website for easy access</li>
+</ol></div></div>
+    </div>
+
+    <svg>
+        <filter id="wavy">
+            <feTurbulence x="0" y="0" baseFrequency="0.02" numOctaves="5" seed="1"></feTurbulence>
+            <feDisplacementMap in="SourceGraphic" scale="10" />
+        </filter>
+    </svg>
+
+    <script src="./app.js"></script>
+</body>
+</html>
