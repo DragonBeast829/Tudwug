@@ -1,1 +1,0 @@
-These docs are to be generated through my [SSG](https://github.com/DragonBeast829/ssg).
