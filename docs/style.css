@@ -13,10 +13,11 @@ body {
     font-size: 14pt;
 }
 
-.sidebar > a {
-    text-decoration: none;
+.sidebar-link {
     font-size: 14pt;
     width: fit-content;
+    cursor: pointer;
+    text-decoration: underline;
 }
 
 .section a {
