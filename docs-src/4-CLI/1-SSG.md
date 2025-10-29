@@ -9,7 +9,7 @@ It takes in a source directory and an output directory. The source directory con
 For example,
 
 ```bash
-tudwug --src ./src --out ./out
+ssg --src ./src --out ./out
 ```
 
 ## Pages & Categories
